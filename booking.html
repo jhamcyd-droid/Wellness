@@ -22,7 +22,6 @@
             margin: 0; 
             padding: 0; 
             color: var(--dark); 
-            /* Added elegant professional spa background visualization */
             background-image: linear-gradient(rgba(45, 55, 72, 0.35), rgba(45, 55, 72, 0.35)), url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=1200');
             background-size: cover;
             background-position: center;
@@ -43,7 +42,6 @@
         .logo { font-size: 24px; font-weight: 800; color: var(--primary); letter-spacing: 1px; text-decoration: none; }
         .back-link { text-decoration: none; color: var(--secondary); font-weight: 600; font-size: 0.95rem; }
 
-        /* Modern Transparent Glassmorphism Container */
         .form-container {
             max-width: 650px;
             margin: 50px auto;
@@ -57,225 +55,46 @@
             -webkit-backdrop-filter: blur(12px);
         }
 
-        h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        p.subtitle {
-            color: #2d3748;
-            margin-bottom: 30px;
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .form-group {
-            margin-bottom: 22px;
-        }
-
-        label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--primary);
-            font-size: 0.95rem;
-        }
-
-        input[type="text"],
-        input[type="tel"],
-        input[type="date"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid rgba(26, 54, 93, 0.2);
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            color: var(--dark);
-            background-color: rgba(255, 255, 255, 0.85);
-            box-sizing: border-box;
-            transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--secondary);
-            background-color: #fff;
-            box-shadow: 0 0 0 3px var(--focus-ring);
-        }
-
-        /* Services Setup Section Layout */
-        .services-section {
-            border: 1px solid var(--border);
-            padding: 20px;
-            border-radius: 8px;
-            background-color: rgba(247, 250, 252, 0.5);
-            margin-bottom: 25px;
-        }
+        h2 { font-size: 2rem; color: var(--primary); margin-top: 0; margin-bottom: 10px; font-weight: 700; }
+        p.subtitle { color: #2d3748; margin-bottom: 30px; font-size: 1rem; font-weight: 500; }
+        .form-group { margin-bottom: 22px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--primary); font-size: 0.95rem; }
         
-        .services-section-title {
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.05rem;
+        input[type="text"], input[type="tel"], input[type="date"], select, textarea {
+            width: 100%; padding: 12px; border: 1px solid rgba(26, 54, 93, 0.2); border-radius: 6px; font-family: inherit; font-size: 0.95rem; color: var(--dark); background-color: rgba(255, 255, 255, 0.85); box-sizing: border-box; transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
         }
 
-        /* The Search / Selection Builder Controls UI */
-        .service-picker-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 16px;
-            border-radius: 6px;
-            border: 1px dashed var(--secondary);
-        }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--secondary); background-color: #fff; box-shadow: 0 0 0 3px var(--focus-ring); }
+
+        .services-section { border: 1px solid var(--border); padding: 20px; border-radius: 8px; background-color: rgba(247, 250, 252, 0.5); margin-bottom: 25px; }
+        .services-section-title { font-weight: 700; color: var(--primary); margin-bottom: 15px; font-size: 1.05rem; }
         
-        .picker-dropdowns {
-            display: flex;
-            gap: 10px;
-        }
+        .service-picker-bar { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; background: rgba(255, 255, 255, 0.7); padding: 16px; border-radius: 6px; border: 1px dashed var(--secondary); }
+        .picker-dropdowns { display: flex; gap: 10px; }
+        .picker-dropdowns select#modalityPicker { flex: 1.8; }
+        .picker-dropdowns select#durationPicker { flex: 1.2; }
         
-        .picker-dropdowns select#modalityPicker {
-            flex: 1.8;
-        }
-        
-        .picker-dropdowns select#durationPicker {
-            flex: 1.2;
-        }
-        
-        .add-service-btn {
-            background-color: var(--secondary);
-            color: #fff;
-            border: none;
-            padding: 12px 18px;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .add-service-btn:hover {
-            background-color: var(--primary);
-        }
+        .add-service-btn { background-color: var(--secondary); color: #fff; border: none; padding: 12px 18px; border-radius: 4px; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: background-color 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
+        .add-service-btn:hover { background-color: var(--primary); }
 
-        /* Added Entries Container UI elements */
-        .selected-services-list {
-            margin-top: 10px;
-        }
-        .empty-state-notice {
-            color: #4a5568;
-            font-size: 0.95rem;
-            text-align: center;
-            padding: 15px 0;
-            font-style: italic;
-            border: 1px dashed rgba(44, 82, 130, 0.4);
-            border-radius: 6px;
-            background: rgba(255, 255, 255, 0.7);
-        }
-        .added-service-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px 14px;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-            margin-bottom: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-        }
-        .added-service-details {
-            font-size: 0.95rem;
-        }
-        .added-service-name {
-            font-weight: 600;
-            color: var(--dark);
-        }
-        .added-service-duration {
-            color: #4a5568;
-            font-size: 0.85rem;
-            margin-left: 6px;
-        }
-        .added-service-promo-label {
-            font-size: 0.75rem;
-            color: var(--accent);
-            background-color: #e6fffa;
-            border: 1px solid #b2f5ea;
-            padding: 1px 5px;
-            border-radius: 3px;
-            margin-left: 5px;
-            font-weight: 600;
-        }
-        .added-service-meta {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .added-service-price {
-            font-weight: 700;
-            color: var(--accent);
-        }
-        .delete-item-btn {
-            background: none;
-            border: none;
-            color: var(--danger);
-            font-size: 1.3rem;
-            cursor: pointer;
-            line-height: 1;
-            padding: 0 4px;
-        }
+        .selected-services-list { margin-top: 10px; }
+        .empty-state-notice { color: #4a5568; font-size: 0.95rem; text-align: center; padding: 15px 0; font-style: italic; border: 1px dashed rgba(44, 82, 130, 0.4); border-radius: 6px; background: rgba(255, 255, 255, 0.7); }
+        .added-service-item { display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.9); padding: 10px 14px; border-radius: 4px; border: 1px solid var(--border); margin-bottom: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+        .added-service-details { font-size: 0.95rem; }
+        .added-service-name { font-weight: 600; color: var(--dark); }
+        .added-service-duration { color: #4a5568; font-size: 0.85rem; margin-left: 6px; }
+        .added-service-promo-label { font-size: 0.75rem; color: var(--accent); background-color: #e6fffa; border: 1px solid #b2f5ea; padding: 1px 5px; border-radius: 3px; margin-left: 5px; font-weight: 600; }
+        .added-service-meta { display: flex; align-items: center; gap: 15px; }
+        .added-service-price { font-weight: 700; color: var(--accent); }
+        .delete-item-btn { background: none; border: none; color: var(--danger); font-size: 1.3rem; cursor: pointer; line-height: 1; padding: 0 4px; }
 
-        .pricing-preview {
-            background-color: rgba(247, 250, 252, 0.6);
-            border: 1px dashed var(--secondary);
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .pricing-preview { background-color: rgba(247, 250, 252, 0.6); border: 1px dashed var(--secondary); padding: 15px 20px; border-radius: 8px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+        .pricing-label { font-weight: 700; color: var(--primary); }
+        .pricing-value { font-size: 1.4rem; font-weight: 800; color: var(--accent); }
 
-        .pricing-label {
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .pricing-value {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--accent);
-        }
-
-        .submit-btn {
-            background-color: var(--accent);
-            color: #ffffff;
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .submit-btn:hover {
-            background-color: #276749;
-        }
-
-        .submit-btn:active {
-            transform: scale(0.99);
-        }
+        .submit-btn { background-color: var(--accent); color: #ffffff; width: 100%; padding: 14px; border: none; border-radius: 6px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background-color 0.2s, transform 0.1s; text-transform: uppercase; letter-spacing: 0.5px; }
+        .submit-btn:hover { background-color: #276749; }
+        .submit-btn:active { transform: scale(0.99); }
 
         @media (max-width: 768px) {
             header { padding: 15px 5%; }
@@ -294,7 +113,7 @@
 
     <div class="form-container">
         <h2>Premium Wellness Booking Intake</h2>
-        <p class="subtitle">Please customize your therapeutic experience menu details below. Your custom selection parameters will format your secure specialist routing session request.</p>
+        <p class="subtitle">Please customize your therapeutic experience menu details below.</p>
 
         <form id="intakeForm">
             <div class="form-group">
@@ -325,7 +144,7 @@
                 </div>
 
                 <div class="selected-services-list" id="selectedServicesList">
-                    <div class="empty-state-notice" id="emptyStateNotice">No services added yet. Select options above to add items to your request.</div>
+                    <div class="empty-state-notice" id="emptyStateNotice">No services added yet.</div>
                 </div>
             </div>
 
@@ -341,25 +160,12 @@
                     <option value="Manila">Manila</option>
                     <option value="Quezon City">Quezon City</option>
                     <option value="Makati">Makati</option>
-                    <option value="Pasig">Pasig</option>
-                    <option value="Taguig">Taguig</option>
-                    <option value="Mandaluyong">Mandaluyong</option>
-                    <option value="San Juan">San Juan</option>
-                    <option value="Pasay">Pasay</option>
-                    <option value="Parañaque">Parañaque</option>
-                    <option value="Las Piñas">Las Piñas</option>
-                    <option value="Alabang / Muntinlupa">Alabang / Muntinlupa</option>
-                    <option value="Marikina">Marikina</option>
-                    <option value="Caloocan">Caloocan</option>
-                    <option value="Malabon">Malabon</option>
-                    <option value="Navotas">Navotas</option>
-                    <option value="Valenzuela">Valenzuela</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="address">Complete Address</label>
-                <textarea id="address" rows="3" required placeholder="Street number, Room/Suite, Building name, Subdivision, Landmarks..."></textarea>
+                <textarea id="address" rows="3" required></textarea>
             </div>
 
             <div class="pricing-preview">
@@ -372,184 +178,114 @@
     </div>
 
     <script>
-        
-        // Supabase Initialization
-        const supabase = supabase.createClient('https://ovzcjjekmekgxtjcxjbf.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92emNqamVrbWVrZ3h0amN4amJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk3Njc2MzEsImV4cCI6MjA5NTM0MzYzMX0.7Ym0iTU4FD6vplSTDvw1cF5sEtdJQF6Ie1u8fxegs08');
+        document.addEventListener('DOMContentLoaded', () => {
+            // FIX: Use window.supabase.createClient
+            const supabase = window.supabase.createClient('https://ovzcjjekmekgxtjcxjbf.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92emNqamVrbWVrZ3h0amN4amJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk3Njc2MzEsImV4cCI6MjA5NTM0MzYzMX0.7Ym0iTU4FD6vplSTDvw1cF5sEtdJQF6Ie1u8fxegs08');
 
-        const modalityPicker = document.getElementById('modalityPicker');
-        const durationPicker = document.getElementById('durationPicker');
-        const addServiceActionBtn = document.getElementById('addServiceActionBtn');
-        const selectedServicesList = document.getElementById('selectedServicesList');
-        const emptyStateNotice = document.getElementById('emptyStateNotice');
-        const priceDisplay = document.getElementById('priceDisplay');
-        const form = document.getElementById('intakeForm');
-        const submitBtn = document.getElementById('submitBtn');
+            const modalityPicker = document.getElementById('modalityPicker');
+            const durationPicker = document.getElementById('durationPicker');
+            const addServiceActionBtn = document.getElementById('addServiceActionBtn');
+            const selectedServicesList = document.getElementById('selectedServicesList');
+            const emptyStateNotice = document.getElementById('emptyStateNotice');
+            const priceDisplay = document.getElementById('priceDisplay');
+            const form = document.getElementById('intakeForm');
+            const submitBtn = document.getElementById('submitBtn');
 
-        const serviceRegistry = [
-            { name: "Swedish Massage", p1: 500, p2: 950, p3: 1400 },
-            { name: "Shiatsu Massage", p1: 555, p2: 1050, p3: 1550 },
-            { name: "Thai Massage", p1: 550, p2: 1050, p3: 1550 },
-            { name: "Reflexology / Foot", p1: 500, p2: 950, p3: 1400 },
-            { name: "Aromatherapy", p1: 650, p2: 1250, p3: 1850 },
-            { name: "Deep Tissue Massage", p1: 700, p2: 1350, p3: 2000 },
-            { name: "Combination Massage", p1: 600, p2: 1150, p3: 1700 }
-        ];
-
-        let addedServicesArray = [];
-
-        serviceRegistry.forEach(item => {
-            const opt = document.createElement('option');
-            opt.value = item.name;
-            opt.textContent = item.name;
-            modalityPicker.appendChild(opt);
-        });
-
-        modalityPicker.addEventListener('change', () => {
-            const match = serviceRegistry.find(s => s.name === modalityPicker.value);
-            durationPicker.innerHTML = "";
-            durationPicker.disabled = false;
-
-            const costPerHour1Hr = match.p1 / 1;
-            const costPerHour2Hr = match.p2 / 2;
-            const costPerHour3Hr = match.p3 / 3;
-
-            const savings2Hr = Math.round(((costPerHour1Hr - costPerHour2Hr) / costPerHour1Hr) * 100);
-            const savings3Hr = Math.round(((costPerHour1Hr - costPerHour3Hr) / costPerHour1Hr) * 100);
-
-            const durationOptions = [
-                { value: "1 Hour", text: `1 Hour - ₱${match.p1}`, promo: "" },
-                { value: "2 Hours", text: `2 Hours - ₱${match.p2} (${savings2Hr}% Off/Hr)`, promo: `${savings2Hr}% Off/Hr` },
-                { value: "3 Hours", text: `3 Hours - ₱${match.p3} (${savings3Hr}% Off/Hr)`, promo: `${savings3Hr}% Off/Hr` }
+            const serviceRegistry = [
+                { name: "Swedish Massage", p1: 500, p2: 950, p3: 1400 },
+                { name: "Shiatsu Massage", p1: 555, p2: 1050, p3: 1550 },
+                { name: "Thai Massage", p1: 550, p2: 1050, p3: 1550 },
+                { name: "Reflexology / Foot", p1: 500, p2: 950, p3: 1400 },
+                { name: "Aromatherapy", p1: 650, p2: 1250, p3: 1850 },
+                { name: "Deep Tissue Massage", p1: 700, p2: 1350, p3: 2000 },
+                { name: "Combination Massage", p1: 600, p2: 1150, p3: 1700 }
             ];
 
-            const placeholderOpt = document.createElement('option');
-            placeholderOpt.value = "";
-            placeholderOpt.disabled = true;
-            placeholderOpt.selected = true;
-            placeholderOpt.textContent = "⏱️ Choose Hours Duration...";
-            durationPicker.appendChild(placeholderOpt);
+            let addedServicesArray = [];
 
-            durationOptions.forEach(optData => {
+            // Populate the dropdown
+            serviceRegistry.forEach(item => {
                 const opt = document.createElement('option');
-                opt.value = optData.value;
-                opt.textContent = optData.text;
-                opt.setAttribute('data-promo', optData.promo);
-                durationPicker.appendChild(opt);
-            });
-        });
-
-        addServiceActionBtn.addEventListener('click', () => {
-            const chosenModality = modalityPicker.value;
-            const chosenDuration = durationPicker.value;
-
-            if (!chosenModality || !chosenDuration) {
-                alert("Please select both a Massage Modality and an Hours Duration!");
-                return;
-            }
-
-            const match = serviceRegistry.find(s => s.name === chosenModality);
-            const selectedOptNode = durationPicker.options[durationPicker.selectedIndex];
-            const promoTagText = selectedOptNode.getAttribute('data-promo');
-            let itemCalculatedPrice = 0;
-
-            if (match) {
-                if (chosenDuration === "1 Hour") itemCalculatedPrice = match.p1;
-                else if (chosenDuration === "2 Hours") itemCalculatedPrice = match.p2;
-                else if (chosenDuration === "3 Hours") itemCalculatedPrice = match.p3;
-            }
-
-            const uniqueId = Date.now() + Math.random().toString(36).substr(2, 4);
-            addedServicesArray.push({
-                id: uniqueId,
-                name: chosenModality,
-                duration: chosenDuration,
-                price: itemCalculatedPrice,
-                promo: promoTagText
+                opt.value = item.name;
+                opt.textContent = item.name;
+                modalityPicker.appendChild(opt);
             });
 
-            modalityPicker.selectedIndex = 0;
-            durationPicker.innerHTML = '<option value="" disabled selected>⏱️ Select Modality First...</option>';
-            durationPicker.disabled = true;
+            modalityPicker.addEventListener('change', () => {
+                const match = serviceRegistry.find(s => s.name === modalityPicker.value);
+                durationPicker.innerHTML = '<option value="" disabled selected>⏱️ Choose Hours Duration...</option>';
+                durationPicker.disabled = false;
 
-            renderActiveServiceRows();
-        });
+                const durationOptions = [
+                    { value: "1 Hour", p: match.p1 },
+                    { value: "2 Hours", p: match.p2 },
+                    { value: "3 Hours", p: match.p3 }
+                ];
 
-        function renderActiveServiceRows() {
-            if (addedServicesArray.length === 0) {
-                emptyStateNotice.style.display = "block";
-                const rows = selectedServicesList.querySelectorAll('.added-service-item');
-                rows.forEach(r => r.remove());
-                priceDisplay.textContent = "₱0.00";
-                return;
-            }
-
-            emptyStateNotice.style.display = "none";
-            const existingRows = selectedServicesList.querySelectorAll('.added-service-item');
-            existingRows.forEach(r => r.remove());
-
-            let cumulativeFormTotal = 0;
-
-            addedServicesArray.forEach(item => {
-                cumulativeFormTotal += item.price;
-                const wrapperNode = document.createElement('div');
-                wrapperNode.className = 'added-service-item';
-                const promoBadgeHtml = item.promo ? `<span class="added-service-promo-label">${item.promo}</span>` : "";
-
-                wrapperNode.innerHTML = `
-                    <div class="added-service-details">
-                        <span class="added-service-name">${item.name}</span>
-                        <span class="added-service-duration">(${item.duration})</span>
-                        ${promoBadgeHtml}
-                    </div>
-                    <div class="added-service-meta">
-                        <span class="added-service-price">₱${item.price.toLocaleString('en-US', {minimumFractionDigits: 2})}</span>
-                        <button type="button" class="delete-item-btn" data-id="${item.id}">&times;</button>
-                    </div>
-                `;
-
-                wrapperNode.querySelector('.delete-item-btn').addEventListener('click', (e) => {
-                    const targetId = e.target.getAttribute('data-id');
-                    addedServicesArray = addedServicesArray.filter(s => s.id !== targetId);
-                    renderActiveServiceRows();
+                durationOptions.forEach(d => {
+                    const opt = document.createElement('option');
+                    opt.value = d.value;
+                    opt.textContent = `${d.value} - ₱${d.p}`;
+                    opt.setAttribute('data-price', d.p);
+                    durationPicker.appendChild(opt);
                 });
-                selectedServicesList.appendChild(wrapperNode);
             });
-            priceDisplay.textContent = `₱${cumulativeFormTotal.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
-        }
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            if (addedServicesArray.length === 0) {
-                alert("Please add at least one service.");
-                return;
-            }
+            addServiceActionBtn.addEventListener('click', () => {
+                const modality = modalityPicker.value;
+                const duration = durationPicker.value;
+                if (!modality || !duration) return;
 
-            submitBtn.disabled = true;
-            submitBtn.textContent = "Saving...";
-
-            const { data, error } = await supabase.from('bookings').insert([{
-                full_name: document.getElementById('fullName').value,
-                mobile_number: document.getElementById('mobileNumber').value,
-                services: JSON.stringify(addedServicesArray),
-                appointment_date: document.getElementById('dateOnly').value,
-                city: document.getElementById('locationCity').value,
-                address: document.getElementById('address').value,
-                total: parseFloat(priceDisplay.textContent.replace(/[₱,]/g, ''))
-            }]);
-
-            if (error) {
-                alert("Booking error: " + error.message);
-                submitBtn.disabled = false;
-                submitBtn.textContent = "Confirm Booking";
-            } else {
-                alert("Booking submitted successfully!");
-                form.reset();
-                addedServicesArray = [];
+                const price = parseInt(durationPicker.options[durationPicker.selectedIndex].getAttribute('data-price'));
+                addedServicesArray.push({ id: Date.now(), name: modality, duration: duration, price: price });
                 renderActiveServiceRows();
-                submitBtn.disabled = false;
-                submitBtn.textContent = "Confirm Booking";
+            });
+
+            function renderActiveServiceRows() {
+                selectedServicesList.innerHTML = "";
+                let total = 0;
+                if (addedServicesArray.length === 0) {
+                    selectedServicesList.appendChild(emptyStateNotice);
+                } else {
+                    addedServicesArray.forEach(item => {
+                        total += item.price;
+                        const div = document.createElement('div');
+                        div.className = 'added-service-item';
+                        div.innerHTML = `<div>${item.name} (${item.duration})</div><div>₱${item.price}</div>`;
+                        selectedServicesList.appendChild(div);
+                    });
+                }
+                priceDisplay.textContent = `₱${total.toLocaleString()}`;
             }
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Saving...";
+
+                const { error } = await supabase.from('bookings').insert([{
+                    full_name: document.getElementById('fullName').value,
+                    mobile_number: document.getElementById('mobileNumber').value,
+                    services: JSON.stringify(addedServicesArray),
+                    appointment_date: document.getElementById('dateOnly').value,
+                    city: document.getElementById('locationCity').value,
+                    address: document.getElementById('address').value,
+                    total: parseFloat(priceDisplay.textContent.replace(/[₱,]/g, ''))
+                }]);
+
+                if (error) {
+                    alert("Error: " + error.message);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Confirm Booking";
+                } else {
+                    alert("Booking submitted successfully!");
+                    form.reset();
+                    addedServicesArray = [];
+                    renderActiveServiceRows();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Confirm Booking";
+                }
+            });
         });
     </script>
 </body>
