@@ -144,7 +144,7 @@
                 </div>
 
                 <div class="selected-services-list" id="selectedServicesList">
-                    <div class="empty-state-notice" id="emptyStateNotice">No services added yet.</div>
+                    <div class="empty-state-notice" id="emptyStateNotice">No services added yet. Select options above to add items to your request.</div>
                 </div>
             </div>
 
@@ -160,12 +160,25 @@
                     <option value="Manila">Manila</option>
                     <option value="Quezon City">Quezon City</option>
                     <option value="Makati">Makati</option>
+                    <option value="Pasig">Pasig</option>
+                    <option value="Taguig">Taguig</option>
+                    <option value="Mandaluyong">Mandaluyong</option>
+                    <option value="San Juan">San Juan</option>
+                    <option value="Pasay">Pasay</option>
+                    <option value="Parañaque">Parañaque</option>
+                    <option value="Las Piñas">Las Piñas</option>
+                    <option value="Alabang / Muntinlupa">Alabang / Muntinlupa</option>
+                    <option value="Marikina">Marikina</option>
+                    <option value="Caloocan">Caloocan</option>
+                    <option value="Malabon">Malabon</option>
+                    <option value="Navotas">Navotas</option>
+                    <option value="Valenzuela">Valenzuela</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="address">Complete Address</label>
-                <textarea id="address" rows="3" required></textarea>
+                <textarea id="address" rows="3" required placeholder="Street number, Building name, Landmark..."></textarea>
             </div>
 
             <div class="pricing-preview">
@@ -179,8 +192,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // FIX: Use window.supabase.createClient
-            const supabase = window.supabase.createClient('https://ovzcjjekmekgxtjcxjbf.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92emNqamVrbWVrZ3h0amN4amJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk3Njc2MzEsImV4cCI6MjA5NTM0MzYzMX0.7Ym0iTU4FD6vplSTDvw1cF5sEtdJQF6Ie1u8fxegs08');
+            const supabase = window.supabase.createClient('https://ovzcjjekmekgxtjcxjbf.supabase.co', 'YOUR_NEW_REGENERATED_ANON_KEY');
 
             const modalityPicker = document.getElementById('modalityPicker');
             const durationPicker = document.getElementById('durationPicker');
@@ -203,7 +215,6 @@
 
             let addedServicesArray = [];
 
-            // Populate the dropdown
             serviceRegistry.forEach(item => {
                 const opt = document.createElement('option');
                 opt.value = item.name;
@@ -213,68 +224,135 @@
 
             modalityPicker.addEventListener('change', () => {
                 const match = serviceRegistry.find(s => s.name === modalityPicker.value);
-                durationPicker.innerHTML = '<option value="" disabled selected>⏱️ Choose Hours Duration...</option>';
+                durationPicker.innerHTML = "";
                 durationPicker.disabled = false;
 
                 const durationOptions = [
-                    { value: "1 Hour", p: match.p1 },
-                    { value: "2 Hours", p: match.p2 },
-                    { value: "3 Hours", p: match.p3 }
+                    { value: "1 Hour", text: `1 Hour - ₱${match.p1}`, promo: "" },
+                    { value: "2 Hours", text: `2 Hours - ₱${match.p2}`, promo: "" },
+                    { value: "3 Hours", text: `3 Hours - ₱${match.p3}`, promo: "" }
                 ];
 
-                durationOptions.forEach(d => {
+                const placeholderOpt = document.createElement('option');
+                placeholderOpt.value = "";
+                placeholderOpt.disabled = true;
+                placeholderOpt.selected = true;
+                placeholderOpt.textContent = "⏱️ Choose Hours Duration...";
+                durationPicker.appendChild(placeholderOpt);
+
+                durationOptions.forEach(optData => {
                     const opt = document.createElement('option');
-                    opt.value = d.value;
-                    opt.textContent = `${d.value} - ₱${d.p}`;
-                    opt.setAttribute('data-price', d.p);
+                    opt.value = optData.value;
+                    opt.textContent = optData.text;
                     durationPicker.appendChild(opt);
                 });
             });
 
             addServiceActionBtn.addEventListener('click', () => {
-                const modality = modalityPicker.value;
-                const duration = durationPicker.value;
-                if (!modality || !duration) return;
+                const chosenModality = modalityPicker.value;
+                const chosenDuration = durationPicker.value;
 
-                const price = parseInt(durationPicker.options[durationPicker.selectedIndex].getAttribute('data-price'));
-                addedServicesArray.push({ id: Date.now(), name: modality, duration: duration, price: price });
+                if (!chosenModality || !chosenDuration) {
+                    alert("Please select both a Massage Modality and an Hours Duration!");
+                    return;
+                }
+
+                const match = serviceRegistry.find(s => s.name === chosenModality);
+                let itemCalculatedPrice = 0;
+
+                if (match) {
+                    if (chosenDuration === "1 Hour") itemCalculatedPrice = match.p1;
+                    else if (chosenDuration === "2 Hours") itemCalculatedPrice = match.p2;
+                    else if (chosenDuration === "3 Hours") itemCalculatedPrice = match.p3;
+                }
+
+                const uniqueId = Date.now() + Math.random().toString(36).substr(2, 4);
+                addedServicesArray.push({
+                    id: uniqueId,
+                    name: chosenModality,
+                    duration: chosenDuration,
+                    price: itemCalculatedPrice
+                });
+
+                modalityPicker.selectedIndex = 0;
+                durationPicker.innerHTML = '<option value="" disabled selected>⏱️ Select Modality First...</option>';
+                durationPicker.disabled = true;
+
                 renderActiveServiceRows();
             });
 
             function renderActiveServiceRows() {
-                selectedServicesList.innerHTML = "";
-                let total = 0;
                 if (addedServicesArray.length === 0) {
-                    selectedServicesList.appendChild(emptyStateNotice);
-                } else {
-                    addedServicesArray.forEach(item => {
-                        total += item.price;
-                        const div = document.createElement('div');
-                        div.className = 'added-service-item';
-                        div.innerHTML = `<div>${item.name} (${item.duration})</div><div>₱${item.price}</div>`;
-                        selectedServicesList.appendChild(div);
-                    });
+                    emptyStateNotice.style.display = "block";
+                    const rows = selectedServicesList.querySelectorAll('.added-service-item');
+                    rows.forEach(r => r.remove());
+                    priceDisplay.textContent = "₱0.00";
+                    return;
                 }
-                priceDisplay.textContent = `₱${total.toLocaleString()}`;
+
+                emptyStateNotice.style.display = "none";
+                const existingRows = selectedServicesList.querySelectorAll('.added-service-item');
+                existingRows.forEach(r => r.remove());
+
+                let cumulativeFormTotal = 0;
+
+                addedServicesArray.forEach(item => {
+                    cumulativeFormTotal += item.price;
+                    const wrapperNode = document.createElement('div');
+                    wrapperNode.className = 'added-service-item';
+
+                    wrapperNode.innerHTML = `
+                        <div class="added-service-details">
+                            <span class="added-service-name">${item.name}</span>
+                            <span class="added-service-duration">(${item.duration})</span>
+                        </div>
+                        <div class="added-service-meta">
+                            <span class="added-service-price">₱${item.price.toLocaleString('en-US', {minimumFractionDigits: 2})}</span>
+                            <button type="button" class="delete-item-btn" data-id="${item.id}">&times;</button>
+                        </div>
+                    `;
+
+                    wrapperNode.querySelector('.delete-item-btn').addEventListener('click', (e) => {
+                        const targetId = e.target.getAttribute('data-id');
+                        addedServicesArray = addedServicesArray.filter(s => s.id !== targetId);
+                        renderActiveServiceRows();
+                    });
+                    selectedServicesList.appendChild(wrapperNode);
+                });
+                priceDisplay.textContent = `₱${cumulativeFormTotal.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
             }
 
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
+                
+                if (addedServicesArray.length === 0) {
+                    alert("Please add at least one service.");
+                    return;
+                }
+
                 submitBtn.disabled = true;
                 submitBtn.textContent = "Saving...";
+
+                // Logic: Combine services into a single string and sum the total hours
+                const serviceNames = addedServicesArray.map(s => s.name).join(', ');
+                const totalHours = addedServicesArray.reduce((acc, curr) => {
+                    const hrs = parseInt(curr.duration) || 0;
+                    return acc + hrs;
+                }, 0);
 
                 const { error } = await supabase.from('bookings').insert([{
                     full_name: document.getElementById('fullName').value,
                     mobile_number: document.getElementById('mobileNumber').value,
-                    services: JSON.stringify(addedServicesArray),
+                    services: serviceNames,
+                    total_duration_hours: totalHours,
                     appointment_date: document.getElementById('dateOnly').value,
                     city: document.getElementById('locationCity').value,
                     address: document.getElementById('address').value,
-                    total: parseFloat(priceDisplay.textContent.replace(/[₱,]/g, ''))
+                    total_price: parseFloat(priceDisplay.textContent.replace(/[₱,]/g, ''))
                 }]);
 
                 if (error) {
-                    alert("Error: " + error.message);
+                    alert("Booking error: " + error.message);
                     submitBtn.disabled = false;
                     submitBtn.textContent = "Confirm Booking";
                 } else {
